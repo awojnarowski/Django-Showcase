@@ -1,9 +1,0 @@
-{% if current_games %}
-    <ul>
-    {% for game in current_games %}
-        <li><a href="{% url 'game_select' game.difficulty %}">Difficulty: {{ game.difficulty }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No Games are available.</p>
-{% endif %}

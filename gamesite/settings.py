@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '98)-lf-r9s*4nmgez%wu9dig+-=$a#kj4&m+6l+!j3a(1#(kk5'
+SECRET_KEY = 'vcwm29hk7c%87(t5p!okw6ffw6602@rrjkzp%5h^a97$u*9nd&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,8 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'tetris.apps.TetrisConfig',
+    #third party apps
+    'rest_framework',
+    'rest_framework.authtoken',
+    #project apps
+    'gamesite.core',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # <-- And here
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
